@@ -1,3 +1,4 @@
+// importing variables
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -7,6 +8,7 @@ import Books from './routes/Books';
 import Book from './routes/Book';
 import AddBook from './routes/AddBook';
 
+// color theme
 const theme = createTheme({
   palette: {
     primary: {
@@ -19,6 +21,7 @@ const theme = createTheme({
 });
 
 function App() {
+  // routing 
   const router = createBrowserRouter([
     {
       path: '/',
@@ -30,7 +33,8 @@ function App() {
       ],
     },
   ]);
-
+  
+// showing routes
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <ThemeProvider theme={theme}>

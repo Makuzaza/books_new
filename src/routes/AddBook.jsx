@@ -13,6 +13,7 @@ import useAxios from '../services/useAxios';
 import { bookGenres } from '../genres';
 import { Stack, Typography } from '@mui/material';
 
+// to return a form for adding new book
 function AddBook() {
   const { alert, post } = useAxios('http://localhost:3001');
   const [rateValue, setRateValue] = useState(3);
@@ -26,6 +27,7 @@ function AddBook() {
     stars: null,
   });
 
+  // handler to define genre of the book, return the array of the genre
   const genreChangeHandler = (event) => {
     const { value } = event.target;
     setBook({
@@ -34,6 +36,7 @@ function AddBook() {
     });
   };
 
+  // return the value of the stars for the new book
   const rateChangeHandler = (event) => {
     const { value } = event.target;
     setBook({
@@ -42,6 +45,7 @@ function AddBook() {
     });
   };
 
+  // handler for complete the book, if it is compeleted you can set finished time 
   const addBookHandler = (e) => {
     const { name, value, checked, type } = e.target;
     if (type === 'checkbox' && name === 'completed') {
@@ -51,6 +55,7 @@ function AddBook() {
     }
   };
 
+  // send the input after form submitted
   function postHandler() {
     post('books', book);
   }
