@@ -93,7 +93,7 @@
       "start": null,
       "end": null,
       "stars": null,
-      "img": "src/assets/book.png",
+      "img": "/src/assets/book.png",
       "id": 16
     },
     {
@@ -118,7 +118,7 @@
       "start": null,
       "end": null,
       "stars": "2",
-      "img": "src/assets/book.png",
+      "img": "/src/assets/book.png",
       "id": 18
     }
   ]
