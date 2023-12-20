@@ -11,13 +11,14 @@ import {
   Rating,
   Chip,
   Typography,
+  TextField
 } from '@mui/material';
 import useAxios from '../services/useAxios';
-
 
 function Books() {
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [search, setSearch] = useState('');
   const {data, loading, get} = useAxios('http://localhost:3000/books');
   
   useEffect(() => {
@@ -38,20 +39,30 @@ function Books() {
     // }
   }
 
+  const searchHandler = (event) => {
+    // console.log(event)
+    // console.log(event.target.value)
+    setSearch(event.target.value);
+  }
+
   // TODO: Implement search functionality
   return (
+    
     <Box sx={{ mx: 'auto', p: 2 }}>
       {loading && <CircularProgress />}
       {!loading && (
         <div>
+          <TextField id="outlined" label="Search" variant="filled" onChange={searchHandler} />
           <Stack
             sx={{ justifyContent: 'space-around' }}
             spacing={{ xs: 1 }}
             direction="row"
             useFlexGap
             flexWrap="wrap"
-          >
-            {data.map((book) => (
+          >      
+      {data
+      .filter(book => book.name.toLowerCase().includes(search.toLowerCase()) || book.author.toLowerCase().includes(search.toLowerCase()))
+      .map((book) => (
               <Card
                 sx={{
                   display: 'flex',

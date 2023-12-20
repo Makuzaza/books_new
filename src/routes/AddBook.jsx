@@ -15,7 +15,7 @@ import { Stack, Typography } from '@mui/material';
 
 // to return a form for adding new book
 function AddBook() {
-  const { alert, post } = useAxios('http://localhost:3001');
+  const { alert, post } = useAxios('http://localhost:3000');
   const [rateValue, setRateValue] = useState(3);
   const [book, setBook] = useState({
     author: '',
@@ -25,6 +25,7 @@ function AddBook() {
     start: null,
     end: null,
     stars: null,
+    img: '',
   });
 
   // handler to define genre of the book, return the array of the genre
@@ -56,8 +57,10 @@ function AddBook() {
   };
 
   // send the input after form submitted
-  function postHandler() {
-    post('books', book);
+  function postHandler(e) {
+    e.preventDefault();
+    const bookWithImage = book.img.trim() === '' ? { ...book, img: "/src/assets/book.png" } : book;
+    post('books', bookWithImage);
   }
 
   return (
@@ -124,7 +127,7 @@ function AddBook() {
             }}
           />
         </Stack>
-        <Button variant="contained" type="submit">
+        <Button variant="contained" type="submit"  >
           Add new
         </Button>
       </Stack>

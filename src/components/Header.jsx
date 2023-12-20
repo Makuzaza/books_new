@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
-import { Button, Box, AppBar, Toolbar, Typography } from '@mui/material';
+import { Button, Box, AppBar, Toolbar, Typography, TextField } from '@mui/material';
+import '../index.css';
+import useAxios from '../services/useAxios';
+
 
 function Header() {
+    // const {data} = useAxios('http://localhost:3000/books');
+  
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -21,13 +26,13 @@ function Header() {
                             Books
                         </Typography>
                     </Typography>
-
                     <Button color="inherit" variant="text" component={Link} to="/">
                         Home
                     </Button>
                     <Button color="inherit" variant="text" component={Link} to="/addnew">
                         Add New
                     </Button>
+                    {/* <TextField id="outlined" label="Search" variant="filled" /> */}
                 </Toolbar>
             </AppBar>
         </Box>

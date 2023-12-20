@@ -1,2 +1,5 @@
-body {
+#outlined {
+    background-color: rgb(185, 206, 224);
+    height: 15px;
+    border-radius: 5px;
 }
