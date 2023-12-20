@@ -86,40 +86,42 @@
       "id": 6
     },
     {
-      "author": "",
-      "name": "new",
-      "genres": [],
-      "completed": false,
-      "start": null,
-      "end": null,
-      "stars": null,
-      "img": "/src/assets/book.png",
-      "id": 16
-    },
-    {
-      "author": "",
-      "name": "new",
-      "genres": [],
-      "completed": false,
-      "start": null,
-      "end": null,
-      "stars": null,
-      "img": "https://images.cdn.soppa365.fi/VTjBg-M-P8bCyTrPYc1iuhELDuI=/1230x0/smart/soppa365.fi/s3fs-public/recipe_main_media/seljanka.jpg",
-      "id": 17
-    },
-    {
       "author": "Maria",
       "name": "Maria",
+      "genres": [],
+      "completed": false,
+      "start": null,
+      "end": null,
+      "stars": null,
+      "img": "https://images.unsplash.com/photo-1519682577862-22b62b24e493",
+      "id": 19
+    },
+    {
+      "author": "new",
+      "name": "new",
       "genres": [
-        "Thriller",
         "Romance"
       ],
       "completed": false,
       "start": null,
       "end": null,
-      "stars": "2",
-      "img": "/src/assets/book.png",
-      "id": 18
+      "stars": null,
+      "img": "https://images.unsplash.com/photo-1519682577862-22b62b24e493",
+      "id": 20
+    },
+    {
+      "author": "book",
+      "name": "book",
+      "genres": [
+        "Biography",
+        "Science Fiction"
+      ],
+      "completed": false,
+      "start": null,
+      "end": null,
+      "stars": null,
+      "img": "https://images.unsplash.com/photo-1519682577862-22b62b24e493",
+      "id": 21
     }
   ]
 }

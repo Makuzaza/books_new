@@ -59,7 +59,7 @@ function AddBook() {
   // send the input after form submitted
   function postHandler(e) {
     e.preventDefault();
-    const bookWithImage = book.img.trim() === '' ? { ...book, img: "/src/assets/book.png" } : book;
+    const bookWithImage = book.img.trim() === '' ? { ...book, img: "https://images.unsplash.com/photo-1519682577862-22b62b24e493" } : book;
     post('books', bookWithImage);
   }
 
