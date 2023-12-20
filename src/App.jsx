@@ -7,6 +7,8 @@ import Root from './routes/Root';
 import Books from './routes/Books';
 import Book from './routes/Book';
 import AddBook from './routes/AddBook';
+import SinglePage from './routes/SinglePage';
+import { books } from '../books.json';
 
 // color theme
 const theme = createTheme({
@@ -21,6 +23,7 @@ const theme = createTheme({
 });
 
 function App() {
+  // const [booksData, setBooks] = useState({ books: books });
   // routing 
   const router = createBrowserRouter([
     {
@@ -30,10 +33,11 @@ function App() {
         { path: '/', element: <Books /> },
         { path: '/book', element: <Book /> },
         { path: '/addnew', element: <AddBook /> },
+        { path: "/:id", element: (<SinglePage {...books}/>)},
       ],
     },
   ]);
-  
+
 // showing routes
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>

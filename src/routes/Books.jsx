@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {
   Box,
@@ -14,6 +15,7 @@ import {
   TextField
 } from '@mui/material';
 import useAxios from '../services/useAxios';
+import { CenterFocusStrong } from '@mui/icons-material';
 
 function Books() {
   const [books, setBooks] = useState([]);
@@ -52,7 +54,8 @@ function Books() {
       {loading && <CircularProgress />}
       {!loading && (
         <div>
-          <TextField id="outlined" label="Search" variant="filled" onChange={searchHandler} />
+          <TextField variant="outlined" label="Search"  onChange={searchHandler} 
+            sx={{ marginBottom: '20px'}}/>
           <Stack
             sx={{ justifyContent: 'space-around' }}
             spacing={{ xs: 1 }}
@@ -107,6 +110,10 @@ function Books() {
                     readOnly
                     size="small"
                   />
+
+<Link to={`/${book.id}`}>
+  See more...
+</Link>
                   <Button size="small">Learn More</Button>
                 </CardActions>
               </Card>
