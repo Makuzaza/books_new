@@ -110,11 +110,7 @@ function Books() {
                     readOnly
                     size="small"
                   />
-
-<Link to={`/${book.id}`}>
-  See more...
-</Link>
-                  <Button size="small">Learn More</Button>
+                  <Button size="small"><Link to={`/${book.id}`}>Learn More</Link></Button>
                 </CardActions>
               </Card>
             ))}

@@ -33,7 +33,7 @@ function App() {
         { path: '/', element: <Books /> },
         { path: '/book', element: <Book /> },
         { path: '/addnew', element: <AddBook /> },
-        { path: "/:id", element: (<SinglePage {...books}/>)},
+        { path: "/:id", element: (<SinglePage books={books} />)},
       ],
     },
   ]);
