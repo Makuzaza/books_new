@@ -42,7 +42,7 @@ function Books() {
   const searchHandler = (event) => {
     // console.log(event)
     // console.log(event.target.value)
-    setSearch(event.target.value);
+    setSearch(event.target.value.toLowerCase());
   }
 
   // TODO: Implement search functionality
@@ -61,8 +61,9 @@ function Books() {
             flexWrap="wrap"
           >      
       {data
-      .filter(book => book.name.toLowerCase().includes(search.toLowerCase()) || book.author.toLowerCase().includes(search.toLowerCase()))
-      .map((book) => (
+      .filter((book, index) => book.name.toLowerCase().includes(search.toLowerCase()) || 
+      book.author.toLowerCase().includes(search.toLowerCase()))
+      .map((book, index) => (
               <Card
                 sx={{
                   display: 'flex',
@@ -70,7 +71,7 @@ function Books() {
                   width: '15%',
                   minWidth: 200,
                 }}
-                key={book.name}
+                key={index}
               >
                 <CardMedia
                   sx={{ height: 250 }}

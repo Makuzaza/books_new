@@ -108,40 +108,28 @@
       "id": 17
     },
     {
-      "author": "Maria",
-      "name": "Maria",
-      "genres": [
-        "Romance",
-        "Thriller"
-      ],
-      "completed": true,
-      "start": "10/10/3",
-      "end": "11/11/3",
-      "stars": "3",
+      "author": "",
+      "name": "eee",
+      "genres": [],
+      "completed": false,
+      "start": null,
+      "end": null,
+      "stars": null,
       "img": "/src/assets/book.png",
       "id": 18
     },
     {
-      "author": "",
-      "name": "Maria",
-      "genres": [],
+      "author": "dshdh",
+      "name": "dsuygsf",
+      "genres": [
+        "Romance"
+      ],
       "completed": false,
       "start": null,
       "end": null,
       "stars": null,
       "img": "/src/assets/book.png",
       "id": 19
-    },
-    {
-      "author": "",
-      "name": "d",
-      "genres": [],
-      "completed": false,
-      "start": null,
-      "end": null,
-      "stars": null,
-      "img": "/src/assets/book.png",
-      "id": 20
     }
   ]
 }
