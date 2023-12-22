@@ -15,7 +15,6 @@ import {
   TextField
 } from '@mui/material';
 import useAxios from '../services/useAxios';
-import { CenterFocusStrong } from '@mui/icons-material';
 
 function Books() {
   const [books, setBooks] = useState([]);
@@ -30,20 +29,12 @@ function Books() {
   }, []);
 
   // TODO: Replace axios with useAxios hook
+  // Replace the current axios.get function in Books.js with the useAxios custom hook without altering the existing functionality.
   function getBooks() {
     get(data)
-    // try {
-    //   const response = await axios.get('http://localhost:3000/books');
-    //   setBooks(response.data);
-    //   setIsLoading(false);
-    // } catch (error) {
-    //   console.error(error);
-    // }
   }
 
   const searchHandler = (event) => {
-    // console.log(event)
-    // console.log(event.target.value)
     setSearch(event.target.value.toLowerCase());
   }
 
