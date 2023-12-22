@@ -38,9 +38,8 @@ function Books() {
     setSearch(event.target.value.toLowerCase());
   }
 
-  // TODO: Implement search functionality
+  // search feature by name or author
   return (
-    
     <Box sx={{ mx: 'auto', p: 2 }}>
       {loading && <CircularProgress />}
       {!loading && (
@@ -53,7 +52,7 @@ function Books() {
             direction="row"
             useFlexGap
             flexWrap="wrap"
-          >      
+          >     
       {data
       .filter((book, index) => book.name.toLowerCase().includes(search.toLowerCase()) || 
       book.author.toLowerCase().includes(search.toLowerCase()))
