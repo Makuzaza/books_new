@@ -17,6 +17,7 @@ let bookArray = books;
 let data = bookArray.find((book) => book.id === parseInt(params.id, 10));
 
   return (
+    // Use Material-UI for designing 
     <div style={{ display: 'flex', justifyContent: 'center' }}>
     <Card sx={{ width: 350, margin: 1 }}>
       <CardMedia
