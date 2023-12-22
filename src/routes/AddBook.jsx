@@ -57,7 +57,7 @@ function AddBook() {
     }
   };
 
-  // send the input after form submitted
+  // success/error messages are displayed
   function postHandler(e) {
     e.preventDefault();
     const bookWithImage = book.img.trim() === '' ? { ...book, img: "https://images.unsplash.com/photo-1519682577862-22b62b24e493" } : book;
