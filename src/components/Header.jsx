@@ -14,22 +14,20 @@ function Header() {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
                 <Toolbar>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    <Typography variant="h6" component="div" onClick={handleBooksClick} sx={{ flexGrow: 1 }}>
                         <Typography
                             variant="h5"
                             noWrap
                             component={Link}
                             to="/"
-                            onClick={handleBooksClick}
+                            
                             sx={{
                                 mr: 2,
                                 color: 'inherit',
                                 textDecoration: 'none',
                                 cursor: 'pointer',
                             }}
-                        > 
-                        Books
-            
+                        > Books
                         </Typography>
                     </Typography>
                     <Button color="inherit" variant="text" component={Link} to="/">
