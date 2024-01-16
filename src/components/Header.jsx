@@ -20,7 +20,6 @@ function Header() {
                             noWrap
                             component={Link}
                             to="/"
-                            
                             sx={{
                                 mr: 2,
                                 color: 'inherit',
