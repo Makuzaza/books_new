@@ -6,7 +6,10 @@ import useAxios from '../services/useAxios';
 
 function Header() {
     // const {data} = useAxios('http://localhost:3000/books');
-  
+    const handleBooksClick = () => {
+        window.location.reload(); // reload the page
+      };
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -17,13 +20,16 @@ function Header() {
                             noWrap
                             component={Link}
                             to="/"
+                            onClick={handleBooksClick}
                             sx={{
                                 mr: 2,
                                 color: 'inherit',
                                 textDecoration: 'none',
+                                cursor: 'pointer',
                             }}
-                        >
-                            Books
+                        > 
+                        Books
+            
                         </Typography>
                     </Typography>
                     <Button color="inherit" variant="text" component={Link} to="/">
@@ -32,7 +38,6 @@ function Header() {
                     <Button color="inherit" variant="text" component={Link} to="/addnew">
                         Add New
                     </Button>
-                    {/* <TextField id="outlined" label="Search" variant="filled" /> */}
                 </Toolbar>
             </AppBar>
         </Box>
