@@ -12,15 +12,20 @@ import {
   Rating,
   Chip,
   Typography,
-  TextField
+  TextField,
+  Checkbox,
+  FormControlLabel
 } from '@mui/material';
 import useAxios from '../services/useAxios';
+import { bookGenres } from '../genres';
+
 
 function Books() {
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState('');
   const {data, loading, get} = useAxios('http://localhost:3000/books');
+  const [selectedGenres, setSelectedGenres] = useState([]);
   
   useEffect(() => {
     if (data.length === 0) {
@@ -38,6 +43,23 @@ function Books() {
     setSearch(event.target.value.toLowerCase());
   }
 
+  //  toggling of the selected genres
+  const handleGenre = (genre) => () => {
+    // event handler when the checkbox is clicked
+    // if genre is already in selectedGenres
+    const updatedGenres = selectedGenres.includes(genre) // checked/unchecked
+      ? selectedGenres.filter((g) => g !== genre) // remove genre
+      : [...selectedGenres, genre]; // checked genre, adds it to the array
+    setSelectedGenres(updatedGenres); // updates the array
+  };
+
+  const filterByGenres = (book) => {
+    if (selectedGenres.length === 0) // no genre filtering
+    return true;
+    // if at least one of the genres is selected 
+    return book.genres.some((genre) => selectedGenres.includes(genre));
+  };
+
   // search feature by name or author
   return (
     <Box sx={{ mx: 'auto', p: 2 }}>
@@ -46,6 +68,21 @@ function Books() {
         <div>
           <TextField variant="outlined" label="Search"  onChange={searchHandler} 
             sx={{ marginBottom: '20px'}}/>
+           <Box sx={{ marginBottom: '20px' }}>  {/* container for the checkboxes */}
+           {/* each genre in the bookGenres array */}
+            {bookGenres.map((genre) => ( 
+              <FormControlLabel // component that combines a label with an input 
+              key={genre}
+                control={
+                  <Checkbox
+                    checked={selectedGenres.includes(genre)} // current check
+                    onChange={handleGenre(genre)} // changes
+                  />
+                }
+                label={genre} // name of the genre
+              />
+            ))}
+          </Box>
           <Stack
             sx={{ justifyContent: 'space-around' }}
             spacing={{ xs: 1 }}
@@ -54,8 +91,9 @@ function Books() {
             flexWrap="wrap"
           >     
       {data
-      .filter((book, index) => book.name.toLowerCase().includes(search.toLowerCase()) || 
-      book.author.toLowerCase().includes(search.toLowerCase()))
+      .filter((book, index) => (book.name.toLowerCase().includes(search.toLowerCase()) || 
+      book.author.toLowerCase().includes(search.toLowerCase()))  &&
+      filterByGenres(book))
       .map((book, index) => (
               <Card
                 sx={{
