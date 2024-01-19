@@ -84,12 +84,13 @@ function Books() {
           <Box
              display="flex"
              justifyContent="flex-end" 
-           maxWidth={350} gap={1}>
+             maxWidth={350} gap={1}>
             <TextField variant="outlined" label="Search by title"  onChange={searchHandlerTitle} 
             sx={{ marginBottom: '20px'}}/>
-          <TextField variant="outlined" label="Search by author"  onChange={searchHandlerAuthor} 
+            <TextField variant="outlined" label="Search by author"  onChange={searchHandlerAuthor} 
             sx={{ marginBottom: '20px'}}/>
-           </Box></Box>
+            </Box>
+            </Box>
            <Box sx={{ marginBottom: '20px' }}>  {/* container for the checkboxes */}
            {/* each genre in the bookGenres array */}
             {bookGenres.map((genre) => ( 
