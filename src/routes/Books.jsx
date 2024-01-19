@@ -24,6 +24,8 @@ function Books() {
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState('');
+  const [searchByTitle, setSearchByTitle] = useState('');
+  const [searchByAuthor, setSearchByAuthor] = useState('');
   const {data, loading, get} = useAxios('http://localhost:3000/books');
   const [selectedGenres, setSelectedGenres] = useState([]);
   
@@ -41,6 +43,13 @@ function Books() {
 
   const searchHandler = (event) => {
     setSearch(event.target.value.toLowerCase());
+  }
+
+  const searchHandlerTitle = (event) => {
+    setSearchByTitle(event.target.value.toLowerCase());
+  }
+    const searchHandlerAuthor = (event) => {
+    setSearchByAuthor(event.target.value.toLowerCase());
   }
 
   //  toggling of the selected genres
@@ -65,9 +74,22 @@ function Books() {
     <Box sx={{ mx: 'auto', p: 2 }}>
       {loading && <CircularProgress />}
       {!loading && (
-        <div>
+        <div>  
+           <Box
+             display="flex"
+             justifyContent="space-between"  
+             gap={1}>
           <TextField variant="outlined" label="Search"  onChange={searchHandler} 
             sx={{ marginBottom: '20px'}}/>
+          <Box
+             display="flex"
+             justifyContent="flex-end" 
+           maxWidth={350} gap={1}>
+            <TextField variant="outlined" label="Search by title"  onChange={searchHandlerTitle} 
+            sx={{ marginBottom: '20px'}}/>
+          <TextField variant="outlined" label="Search by author"  onChange={searchHandlerAuthor} 
+            sx={{ marginBottom: '20px'}}/>
+           </Box></Box>
            <Box sx={{ marginBottom: '20px' }}>  {/* container for the checkboxes */}
            {/* each genre in the bookGenres array */}
             {bookGenres.map((genre) => ( 
@@ -91,8 +113,9 @@ function Books() {
             flexWrap="wrap"
           >     
       {data
-      .filter((book, index) => (book.name.toLowerCase().includes(search.toLowerCase()) || 
-      book.author.toLowerCase().includes(search.toLowerCase()))  &&
+      .filter((book, index) => (book.name.toLowerCase().includes(searchByTitle.toLowerCase()) &&
+      book.author.toLowerCase().includes(searchByAuthor.toLowerCase())) && (book.name.toLowerCase().includes(search.toLowerCase()) ||
+      book.author.toLowerCase().includes(search.toLowerCase())) &&
       filterByGenres(book))
       .map((book, index) => (
               <Card
